@@ -1,0 +1,4 @@
+index=wineventlog (EventCode=4624 OR EventCode=4672 OR EventCode=7045)
+| eval suspicious_remote=if(LogonType=3 OR LogonType=10, 1, 0)
+| stats count values(host) as hosts values(user) as users values(ProcessName) as process_names by src_ip EventCode
+| sort - count
