@@ -1,0 +1,6 @@
+{
+  "observed_ips": ["185.220.101.1"],
+  "observed_domains": ["example-bad-domain.test"],
+  "observed_hashes": ["44d88612fea8a8f36de82e1278abb02f"],
+  "recommended_next_step": "Escalate for analyst review and isolate host if confirmed malicious."
+}

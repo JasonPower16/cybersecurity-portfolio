@@ -1,0 +1,9 @@
+{
+  "alert_name": "Suspicious PowerShell Execution",
+  "host": "WS-0042",
+  "user": "jpower",
+  "command_line": "powershell.exe -EncodedCommand SQBFAFgA",
+  "remote_ip": "185.220.101.1",
+  "domain": "example-bad-domain.test",
+  "hash": "44d88612fea8a8f36de82e1278abb02f"
+}
