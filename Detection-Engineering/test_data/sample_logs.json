@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2026-03-20T13:04:11Z",
+    "host": "WS-0042",
+    "user": "jpower",
+    "CommandLine": "powershell.exe -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkA",
+    "ParentProcessName": "winword.exe",
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+  },
+  {
+    "timestamp": "2026-03-21T09:22:51Z",
+    "host": "SRV-APP-02",
+    "user": "svc-backup",
+    "CommandLine": "rundll32.exe C:\\Windows\\System32\\comsvcs.dll, MiniDump 720 C:\\Temp\\lsass.dmp full",
+    "ParentProcessName": "cmd.exe",
+    "Image": "C:\\Windows\\System32\\rundll32.exe"
+  }
+]

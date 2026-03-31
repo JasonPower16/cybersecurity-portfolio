@@ -1,0 +1,38 @@
+title: Abnormal Remote Execution / Lateral Movement
+id: DET-003
+status: experimental
+description: Detects suspicious remote execution behaviors consistent with lateral movement using PsExec-like tooling, WMI, or remote service creation.
+
+log_source:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventCode:
+      - 4624
+      - 4688
+      - 7045
+    CommandLine|contains:
+      - "psexec"
+      - "wmic"
+      - "sc.exe"
+      - "\\"
+  condition: selection
+
+false_positives:
+  - Systems administration tasks
+  - Software deployment tools
+  - Approved remote maintenance
+
+triage:
+  - Compare source host to known admin jump hosts
+  - Identify whether target host is high-value
+  - Review time-of-day and user baseline
+  - Investigate follow-on process execution
+
+severity: high
+
+mitre:
+  tactic: lateral-movement
+  technique: T1021

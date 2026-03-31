@@ -1,0 +1,35 @@
+title: PowerShell Suspicious Execution
+id: DET-001
+status: experimental
+description: Detects encoded or obfuscated PowerShell command execution patterns often associated with malware delivery, living-off-the-land activity, or hands-on-keyboard post-exploitation.
+
+log_source:
+  product: windows
+  service: powershell
+
+detection:
+  selection:
+    CommandLine|contains:
+      - "-enc"
+      - "-encodedcommand"
+      - "FromBase64String"
+      - "IEX("
+      - "DownloadString"
+  condition: selection
+
+false_positives:
+  - Administrative automation using encoded commands
+  - Packaging and deployment scripts
+  - Red team or internal testing activity
+
+triage:
+  - Validate parent process
+  - Check user context and host criticality
+  - Review network connections near execution time
+  - Confirm whether the script was signed or expected
+
+severity: high
+
+mitre:
+  tactic: execution
+  technique: T1059.001

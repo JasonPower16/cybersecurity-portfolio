@@ -1,0 +1,9 @@
+index=wineventlog EventCode=4688
+(
+    NewProcessName="*psexec*" OR
+    CommandLine="*wmic*" OR
+    CommandLine="*sc.exe*" OR
+    CommandLine="*\\*"
+)
+| stats count values(CommandLine) as command_lines values(ParentProcessName) as parent_process by host user NewProcessName
+| sort - count

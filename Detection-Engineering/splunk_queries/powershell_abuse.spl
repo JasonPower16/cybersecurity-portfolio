@@ -1,0 +1,10 @@
+index=wineventlog (EventCode=4104 OR EventCode=4688)
+(
+    CommandLine="*-enc*" OR
+    CommandLine="*-encodedcommand*" OR
+    CommandLine="*FromBase64String*" OR
+    CommandLine="*IEX(*" OR
+    CommandLine="*DownloadString*"
+)
+| stats count values(CommandLine) as command_lines values(ParentProcessName) as parent_process by host user Image
+| sort - count
